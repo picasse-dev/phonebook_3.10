@@ -48,6 +48,8 @@ let persons = [
     }
 ]
 
+app.get('/',(request, response) => {response.send('<h1>Hello word</h1>')})
+
 app.get('/api/persons',(request, response) => {
     response.json(persons)
 })
@@ -186,20 +188,35 @@ app.listen(PORT,() => {
 /**/
 /*
 Solution:
-1) create a github repo for uploading the backend folder
-2) Move only the backend logic to a separate folder in Desktop/Phonebook_3.10
-3) Upload Phonebook_3.10 folder to github
-git init
-git branch -M main
-git add .
-git commit -m "first commit"
-git remote add origin https://github.com/picasse-dev/phonebook_backend.git
-git push -u origin main
-4) Cinfigurar el proyecto del backend para que sea compatible con render
-Add the port
-const PORT = process.env.PORT || 3001
 
+create a github repo for uploading the backend folder
+  Move only the backend folder to a separate folder in Desktop/Phonebook_3.10
+  Upload Phonebook_3.10 folder to github
+  git init
+  git branch -M main
+  git add .
+  git commit -m "first commit"
+  git remote add origin https://github.com/picasse-dev/phonebook_backend.git
+  git push -u origin main
 
+Configure the backend for works with Render.com
+  Add the port
+  const PORT = process.env.PORT || 3001
+  Add deploy script to package.json/scripts
+  "deploy": "git add . && git commit -m deploy && git push",
+  npm run deploy (its supossed that with every commit the server relaunches)
+
+Go to Render.com create New Web Service
+  Select the: 
+  repo = picasse-dev / phonebook_3.10
+  Name = phonebook_3.10
+  Language = node
+  Branch = main
+  Root Directory = /Backend
+  Build command = npm install
+  Start command = npm start
+  Compute = 0$ plan
+  click ->Deploy Web Service
 /**/
 
 
