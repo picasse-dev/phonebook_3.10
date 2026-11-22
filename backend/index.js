@@ -179,7 +179,7 @@ app.patch('/api/persons/:id',(request, response) => {
   response.json(updatedPerson)
 })
 
-const PORT = 3001
+const PORT = process.env.PORT || 3001
 app.listen(PORT,() => {
     console.log(`Server running on port ${PORT}`)
 })
@@ -187,7 +187,21 @@ app.listen(PORT,() => {
 /*
 Solution:
 1) create a github repo for uploading the backend folder
+2) Move only the backend logic to a separate folder in Desktop/Phonebook_3.10
+3) Upload Phonebook_3.10 folder to github
+git init
+git branch -M main
+git add .
+git commit -m "first commit"
+git remote add origin https://github.com/picasse-dev/phonebook_backend.git
+git push -u origin main
+4) Cinfigurar el proyecto del backend para que sea compatible con render
+Add the port
+const PORT = process.env.PORT || 3001
+
+
 /**/
+
 
 
 
