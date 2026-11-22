@@ -203,7 +203,7 @@ Solution:
   git branch -M main
   git add .
   git commit -m "first commit"
-  git remote add origin https://github.com/picasse-dev/phonebook_backend.git
+  git remote add origin https://github.com/picasse-dev/phonebook_3.10.git
   git push -u origin main
 
 2.Configure the backend for works with Render.com
@@ -211,9 +211,9 @@ Solution:
   const PORT = process.env.PORT || 3001
   Add deploy script to package.json/scripts
   "deploy": "git add . && git commit -m deploy && git push",
-  npm run deploy (Executes autodeploy after changes in the code)
-
-3.Go to Render.com create New Web Service
+  npm run deploy (Executes the autodeploy after you changes the code, autodeploy happens when a comit is detected in the repository)
+  
+  3.Go to Render.com create New Web Service
   Select the: 
   repo = picasse-dev / phonebook_3.10
   Name = phonebook_3.10
@@ -224,8 +224,10 @@ Solution:
   Start command = npm start
   Compute = 0$ plan
   click ->Deploy Web Service
-
-Finally im going to move this folfer phonebook_3.10 to the exercises folder, so the redeploy will stop working, im also deleting the .git file stores in phonebook_3.10 folser for not having issues with the main .git in the folfer /fullstackopen, so if you want to make this works again, should follow the 3 steps described here again!
+  Go to: https://phonebook-3-10-x8q3.onrender.com/api/persons
+  
+  Add the test.rest file and test the deployment
+Finally im going to move this folder phonebook_3.10 to the exercises folder PART3, so the redeploy will stop working, im also deleting the .git file stores in phonebook_3.10 folder for not having issues with the main .git in the folfer /fullstackopen, so if you want to make this works again, should follow the 3 steps described here again or make a copy at the repo!
 /**/
 
 
