@@ -183,6 +183,11 @@ app.patch('/api/persons/:id',(request, response) => {
   response.json(updatedPerson)
 })
 
+const unknownEndpoint = (request, response) => {
+  response.status(404).send({ error: 'unknowwwwn endpoint' })
+}
+app.use(unknownEndpoint)
+
 const PORT = process.env.PORT || 3001
 app.listen(PORT,() => {
     console.log(`Server running on port ${PORT}`)
@@ -191,7 +196,7 @@ app.listen(PORT,() => {
 /*
 Solution:
 
-create a github repo for uploading the backend folder
+1.create a github repo for uploading the backend folder
   Move only the backend folder to a separate folder in Desktop/Phonebook_3.10
   Upload Phonebook_3.10 folder to github
   git init
@@ -201,14 +206,14 @@ create a github repo for uploading the backend folder
   git remote add origin https://github.com/picasse-dev/phonebook_backend.git
   git push -u origin main
 
-Configure the backend for works with Render.com
+2.Configure the backend for works with Render.com
   Add the port
   const PORT = process.env.PORT || 3001
   Add deploy script to package.json/scripts
   "deploy": "git add . && git commit -m deploy && git push",
   npm run deploy (Executes autodeploy after changes in the code)
 
-Go to Render.com create New Web Service
+3.Go to Render.com create New Web Service
   Select the: 
   repo = picasse-dev / phonebook_3.10
   Name = phonebook_3.10
@@ -219,6 +224,8 @@ Go to Render.com create New Web Service
   Start command = npm start
   Compute = 0$ plan
   click ->Deploy Web Service
+
+Finally im going to move this folfer phonebook_3.10 to the exercises folder, so the redeploy will stop working, im also deleting the .git file stores in phonebook_3.10 folser for not having issues with the main .git in the folfer /fullstackopen, so if you want to make this works again, should follow the 3 steps described here again!
 /**/
 
 
