@@ -50,6 +50,8 @@ let persons = [
 
 app.get('/',(request, response) => {response.send('<h1>Hello word</h1>')})
 
+app.get('/api',(request, response) => {response.send('<h1>Hello word x2</h1>')})
+
 app.get('/api/persons',(request, response) => {
     response.json(persons)
 })
@@ -204,7 +206,7 @@ Configure the backend for works with Render.com
   const PORT = process.env.PORT || 3001
   Add deploy script to package.json/scripts
   "deploy": "git add . && git commit -m deploy && git push",
-  npm run deploy (its supossed that with every commit the server relaunches)
+  npm run deploy (Executes autodeploy after changes in the code)
 
 Go to Render.com create New Web Service
   Select the: 
